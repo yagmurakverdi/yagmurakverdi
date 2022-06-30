@@ -1,0 +1,44 @@
+import pandas as pd
+import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeClassifier
+def oyun(a,b):
+    combats=pd.read_csv("combats.csv")
+    combats["sonuc"]=combats["Second_pokemon"]==combats["Winner"]
+    tree=DecisionTreeClassifier()
+    model=tree.fit(x,y)
+    sonuclar=[]
+    s1=model.predict([[a[0],b[0]]])
+    s2=model.predict([[a[1],b[1]]])
+    s3=model.predict([[a[2],b[2]]])
+    sonuclar.append(s1[0])
+    sonuclar.append(s2[0])
+    sonuclar.append(s3[0])
+    return sonuclar
+oyun([13,15,17],[21,22,33])
+combats.head(2)
+y=combats[["sonuc"]]
+x=combats[["First_pokemon","Second_pokemon"]]
+tree=DecisionTreeClassifier()
+model=tree.fit(x,y)
+model.score(x,y)
+model.predict([[26,7]])
+#Kaç farklı pokemon var
+len(combats['First_pokemon'].unique())
+# 784 Pokemon Kaç Farklı Karşılaşma Yapabilir
+784*783/2
+# conbats.csv içerisinde kaç karşılaşma var
+len(combats)
+pokemon=pd.read_csv("pokemon.csv")
+
+def idgetir(liste):
+    secili=[]
+    for i in liste:
+        sec=pokemon[pokemon["Name"]==i]
+        idsec=sec.values[0][0]
+        secili.append(idsec)
+    return secili
+    
+    idgetir(["Bulbasaur","Mega Venusaur","Charmander"])
+    
+    list(pokemon["Name"])
