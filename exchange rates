@@ -1,0 +1,37 @@
+import xml.etree.ElementTree as ET
+import urllib
+xml=ET.parse(urllib.request.urlopen('https://www.tcmb.gov.tr/kurlar/today.xml'))
+veriler=xml.getroot()
+veriler
+veriler[0]
+veriler.attrib
+veriler.tag
+veriler.text
+
+for veri in veriler:
+    print(veri.attrib)
+    
+for kur in veriler.findall("Currency/Isim"):
+  print(kur.text)
+  
+  for kur in veriler.findall('Currency'):
+  print(kur[1].text,kur[3].text)
+  
+  def dovizcevir(miktar,doviz):
+  for kur in veriler.findall('Currency'):
+    if kur.attrib['Kod']==doviz:
+      tutar=float(kur[3].text)*miktar
+  return tutar
+  
+  dovizcevir(400,"EUR")
+  dovizcevir(5000,"RUB")
+  def parite(doviz1,doviz2):
+  for kur in veriler.findall('Currency'):
+    if kur.attrib['Kod']==doviz1:
+      d1=float(kur[3].text)
+    if kur.attrib['Kod']==doviz2:
+      d2=float(kur[3].text)
+  paritegetir=d1/d2
+  return paritegetir
+  parite("USD","EUR")
+  
