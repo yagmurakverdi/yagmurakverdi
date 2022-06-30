@@ -1,0 +1,70 @@
+from matplotlib import pyplot as plt
+from matplotlib.pyplot import figure
+import pandas as pd
+import numpy as np
+
+adaylar=input("Adayları , ile yazınız")
+adaylar=adaylar.split(",")
+adaysayisi=len(adaylar)
+oylar=np.zeros(adaysayisi) #oylar=np.array([0,0,0,0])
+toplamoy=int(input("Toplam Oy Sayısını Giriniz"))
+while oylar.sum()<toplamoy:
+  oy=[]
+  for aday in adaylar:
+    print(aday)
+    oybul=int(input("Aldığı Oy Sayısı"))
+    oy.append(oybul)
+  oylar2=np.array(oy)
+  oylar2=oylar2.astype("float")
+  oylar=oylar+oylar2
+  plt.pie(oylar,labels=adaylar,autopct="%1.1f%%")
+  plt.title("Toplam Kullanılan Oy Sayısı %s")
+  plt.show()
+plt.pie(oylar,labels=adaylar,autopct="%1.1f%%")
+plt.show()
+oylar.sum()
+plt.style.use("seaborn")
+yillar=[2015,2016,2017,2018,2019,2020,2021]
+pancar=[50,60,80,40,40,90,70]
+bugday=[60,60,55,50,60,80,75]
+misir=[10,10,90,90,60,70,80]
+urunler=["Pancar","Buğday","Mısır"]
+
+plt.stackplot(yillar,pancar,bugday,misir,labels=urunler)
+plt.legend(loc="upper left")
+plt.title("Tarım İhracat Verileri")
+plt.show()
+plt.style.available
+import pandas as pd
+car=pd.read_csv("car.csv")
+car
+def carlist():
+liste=list(car["Marka"].unique())
+return liste
+carlist
+def carsayi():
+  liste=len(list(car["Marka"]))
+  return liste
+  a=car[car["Marka"]=="Jaguar"]
+  x=dict(a["Model Yıl"].value_counts())
+  for i in range(1959,2021):
+  i=float(i)
+  if i not in x:
+    x[i]=0
+    def aracsayisi(marka):
+  a=car[car["Marka"]==marka]
+  x=dict(a["Model Yıl"].value_counts())
+  liste=[]
+  for i in range(1959,2021):
+    i=float(i)
+    if i not in x:
+      liste.append(0)
+    else:
+      liste.append.(x[i])
+   return liste
+degerler=[]
+for c in carlist():
+  degerler.append(aracsayisi(c))
+aracliste=carlist()
+yillar=np.arrange(1959,2021)
+  
