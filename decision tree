@@ -1,0 +1,56 @@
+
+01.12.2021 Decision Tree_
+
+import pandas as pd
+
+import seaborn as sns
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import export_graphviz
+from sklearn.linear_model import LinearRegression
+import graphviz
+
+titanic=sns.load_dataset("titanic")
+
+titanic.head(3)
+
+titanic=titanic[["survived","pclass","sex","age","sibsp","embarked"]]
+
+titanic.head(3)
+
+titanic=pd.get_dummies(titanic,columns=["sex","embarked"],drop_first=True)
+
+titanic=titanic.dropna()
+
+y=titanic[["survived"]]
+x=titanic.drop(columns="survived",axis=1) #satır düşüreceğim zaman axis 1 sutun düşüreceğim zaman axis 0
+
+#Linear ile Hesap
+reg=LinearRegression()
+model=reg.fit(x,y)
+model.score(x,y)
+
+0.4028858035776708
+
+#decision tree
+tree=DecisionTreeClassifier(max_depth=14)
+model=tree.fit(x,y)
+model.score(x,y)
+
+0.9313725490196079
+
+dot_data=export_graphviz(tree,feature_names=x.columns)
+
+graph=graphviz.Source(dot_data)
+
+combat=pd.read_csv("combats.csv")
+
+combat
+
+tree=DecisionTreeClassifier()
+model=tree.fit(x,y)
+
+model.score(x,y)
+
+model.predict([["1,2"]])
+
+
