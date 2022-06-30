@@ -1,0 +1,177 @@
+
+01.11.2021 (Matplot)1_
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2991 entries, 0 to 2990
+Data columns (total 10 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   SNo        2991 non-null   int64  
+ 1   Name       2991 non-null   object 
+ 2   Symbol     2991 non-null   object 
+ 3   Date       2991 non-null   object 
+ 4   High       2991 non-null   float64
+ 5   Low        2991 non-null   float64
+ 6   Open       2991 non-null   float64
+ 7   Close      2991 non-null   float64
+ 8   Volume     2991 non-null   float64
+ 9   Marketcap  2991 non-null   float64
+dtypes: float64(6), int64(1), object(3)
+memory usage: 233.8+ KB
+
+BTC.head(3)
+
+Binance=pd.read_csv("Binance.csv")
+
+Litecoin=pd.read_csv("Litecoin.csv")
+
+Binance
+
+Litecoin
+
+x=Binance["Date"]
+x=x.astype("datetime64")
+y=Binance["Close"]
+z=Litecoin["Close"]
+z=z[-len(y):]
+
+plt.plot(x,y,color="pink")
+plt.plot(x,z,color="#33FFBE")
+
+plt.xlabel("Tarih")
+plt.ylabel("Fiyat/USD")
+plt.legend(["Binance","Litecoin"])
+plt.show()
+
+plt.plot(x,y,linestyle="dashed")
+plt.plot(x,z,color="#33FFBE")
+plt.xlabel("Tarih")
+plt.ylabel("Fiyat/USD")
+plt.legend(["Binance","Litecoin"])
+plt.show()
+
+plt.plot(x,y,linestyle="dashed",linewidth=3,color="purple")
+plt.plot(x,z,color="#33FFBE")
+plt.xlabel("Tarih")
+plt.ylabel("Fiyat/USD")
+plt.legend(["Binance","Litecoin"])
+plt.show()
+
+plt.style.available
+
+['Solarize_Light2',
+ '_classic_test_patch',
+ 'bmh',
+ 'classic',
+ 'dark_background',
+ 'fast',
+ 'fivethirtyeight',
+ 'ggplot',
+ 'grayscale',
+ 'seaborn',
+ 'seaborn-bright',
+ 'seaborn-colorblind',
+ 'seaborn-dark',
+ 'seaborn-dark-palette',
+ 'seaborn-darkgrid',
+ 'seaborn-deep',
+ 'seaborn-muted',
+ 'seaborn-notebook',
+ 'seaborn-paper',
+ 'seaborn-pastel',
+ 'seaborn-poster',
+ 'seaborn-talk',
+ 'seaborn-ticks',
+ 'seaborn-white',
+ 'seaborn-whitegrid',
+ 'tableau-colorblind10']
+
+plt.plot(x,y,linestyle="dashed",linewidth=3,color="purple")
+plt.plot(x,z,color="#33FFBE")
+plt.style.use('fivethirtyeight')
+plt.xlabel("Tarih")
+plt.ylabel("Fiyat/USD")
+plt.legend(["Binance","Litecoin"])
+plt.show()
+
+plt.plot(x,y,linestyle="dashed",linewidth=3,color="purple")
+plt.plot(x,z,color="#33FFBE")
+plt.style.use('fivethirtyeight') #tasarım
+plt.xlabel("Tarih")
+plt.ylabel("Fiyat/USD")
+plt.legend(["Binance","Litecoin"])
+plt.grid('True') #grid yapmaya yarıyor.
+plt.show()
+
+plt.xkcd() #aşağıdaki şekilde görünmesini sağlıyor.
+plt.plot(x,y,linestyle="dashed",linewidth=3,color="purple")
+plt.plot(x,z,color="#33FFBE")
+plt.style.use('fivethirtyeight') 
+plt.xlabel("Tarih")
+plt.ylabel("Fiyat/USD")
+plt.legend(["Binance","Litecoin"])
+plt.grid('True')
+plt.show()
+
+plt.xkcd() 
+figure(figsize=(16,8))
+plt.plot(x,y,linestyle="dashed",linewidth=3,color="purple")
+plt.plot(x,z,color="#33FFBE")
+plt.style.use('fivethirtyeight') 
+plt.xlabel("Tarih")
+plt.ylabel("Fiyat/USD")
+plt.legend(["Binance","Litecoin"])
+plt.grid('True')
+plt.show()
+
+plt.xkcd() 
+figure(figsize=(16,8))
+plt.plot(x,y,linestyle="dashed",linewidth=3,color="purple")
+plt.plot(x,z,color="#33FFBE")
+plt.style.use('fivethirtyeight') 
+plt.xlabel("Tarih")
+plt.ylabel("Fiyat/USD")
+plt.legend(["Binance","Litecoin"])
+plt.xtick(fontsize=18)
+plt.grid('True')
+plt.show()
+
+x=Binance["Date"]
+x=x.astype("datetime64")
+y=Binance["Close"]
+z=Litecoin["Close"]
+z=z[-len(y):]
+t=Binance["Marketcap"]
+
+plt.style.use("fivethirtyeight")
+plt.bar(x,t)
+plt.savefig('yagmur.png')
+plt.show()
+
+oranlar=[32,29,13,11,8]
+isimler=["a","b","c","d","e"]
+deger=[0,0,0,0.25,0]
+renkler=["pink","blue","purple","yellow","red"]
+
+plt.pie(oranlar,labels=isimler,autopct="%1.1f%%",colors=renkler,explode=deger,shadow=True)
+plt.title("Seçim Sonuçları")
+plt.show()
+
+#Bir seçimde 4000 oy kullanılacak 
+#4 adet aday var. 1-Killa Hakan 2- Pascal Nouma 3- Hagi 4- Demet Akallın
+### bu sandıkta kaç oy kullanıldı ödev
+
+ihe=pd.read_csv("ihe.csv")
+
+ihe
+
+x=ihe["İlce_Adi"].value_counts()
+isim=x.index
+oran=x.values
+plt.pie(oran,labels=isim)
+figure(figsize=(16,16))
+plt.show()
+
+#mapbox 
+#plotly
+
