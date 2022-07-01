@@ -1,0 +1,6 @@
+!pip install fbprophet
+!pip install yfinance
+import yfinance as yf 
+google=yf.download("GOOG","2022-01-01","2022-01-07")
+google.head(3)
+gfiyat=google[["Adj Close"]]
