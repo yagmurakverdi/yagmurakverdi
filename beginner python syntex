@@ -1,0 +1,121 @@
+dir(str) #hangi sınıfı yazarsak onma ait metotları gösterir.
+isim.upper() # Karakterleri büyük yapıyor.
+isim=isim.upper() #atama yapmak için kaydetmek için 
+isimler=["Yağmur", "Can", "Mustafa",["Kemal", "İsmet", "Fevzi"]]
+dir(isimler)
+isimler[0] # isimler listesindeki 1. elamanı getirir.
+isimler[3] #isimler listesindeki 4. elaman olan ["Kemal","Ismet","Fevzi"] getirir.
+isimler[3][0] # isimler listesindeki 4. elamanı getirip bu elamanında 1. elamanını alır yani Kemal
+isimler[0:2] #1.elamandan 3.elamana kadar olanları alır.(3 dahil değil)
+isimler[-1] #sondan 1. elamanı getirir.
+isimler.append("Rauf") #sonuna elaman ekleme çıktısı :['Yağmur', 'Can', 'Mustafa', ['Kemal', 'İsmet', 'Fevzi'], 'Rauf']
+isimler.count("Yağmur") #liste içinde kaç kare yağmur olduğunu sayıyor.
+isimler2=["Sabiha", "Hikmet"]
+isimler.extend(isimler2) #isimler listesine isimleri2yi ekler.
+isimler.insert(0,"Hasan") #isimler listesinin ilk elamanı olarak hasanı ekler.
+isimler.index("Hikmet") #
+isimler.remove("Hikmet")
+isimler.pop() #son elamanı siliyor ve sildiği elamanı ekrana yazdırıyor.
+names="çağrı;hasan;mustafa;ali;veysel; quaresma;veli"
+names=names.split(";")
+len(names)
+siir="""hayat güzel
+kuslar ucuyor"""
+metin="""İçeriğe atla
+Kenar çubuğunu aç/kapat
+
+VikipediÖzgür Ansiklopedi
+Ara
+Vikipedi üzerinde ara
+Hesap oluştur
+
+Kişisel araçlar
+
+Gezinti menüsü
+Anasayfa
+Hakkımızda
+İçindekiler
+Rastgele madde
+Seçkin içerik
+Yakınımdakiler
+Katılım
+Bağış yapın
+Deneme tahtası
+İş birliği projesi
+Köy çeşmesi
+Son değişiklikler
+Topluluk portali
+Wikimedia dükkânı
+Yardım
+Araçlar
+Sayfaya bağlantılar
+İlgili değişiklikler
+Özel sayfalar
+Kalıcı bağlantı
+Sayfa bilgisi
+Bu sayfayı kaynak göster
+Vikiveri ögesi
+Dillerarası bağlantıları değiştir
+Dosya yükle
+Yazdır/dışa aktar
+Bir kitap oluştur
+PDF olarak indir
+Basılmaya uygun görünüm
+Diğer projelerde
+Wikimedia Commons
+MaddeTartışma
+OkuDeğiştirKaynağı değiştirGeçmişi gör
+Vals
+Vikipedi, özgür ansiklopedi
+
+Lautrec'den iki kadının Vals'ı.
+
+Öncü film çekim tekniği ile vals.
+Vals, 3/4 zamanlı bir Avusturya dansıdır.[1] En belirgin özelliği, çiftlerin birbirine sıkıca tutunup bir nokta çevresinde dönerek dans etmeleridir.
+
+Çıkış kaynağı, 16. yy ortalarında Fransa’nın Provence bölgesinde ortaya çıkan ve “Valto” olarak adlandırılan folklorik bir danstır. Hatta İngiltere Kraliçesi I. Elizabeth’in Leicester Kontu ile bu dansı yaptığı tablo büyük ün kazanmıştır.
+
+Vals 19. yy’ın başlarında Avusturya ve Almanya’da dans edilen bölgenin yerel farklılıklarını bünyesinde barındırarak gelişim göstermiştir. Özellikle Kuzey Avusturya’nın “Land lob der Enss” bölgesinde uygulanan dans stili “Londler” adını alarak çok popüler olmuştur.
+
+Vals kısa süre Johann Strauss’un müziğinin etkisiyle Viyana’da ve 1812 yılından itibaren de İngiltere’de geniş kitlelere ulaşmış, aristokrasinin beğenisini kazanarak baloların vazgeçilmez eğlencesi olmuştur.
+
+Günümüzde vals “Viyana Valsi” ve “Modern Vals” olmak üzere iki farklı ritim ve kategoride dünya dans literatüründe yer almaktadır.
+
+Semai Usulü ve Vals
+Semai Usulü seyri sık sık Batı Müziğindeki Vals ritmiyle karıştırılsa da, darp güçlerinin farklılıkları nedeniyle seyri ve melodik ritmi Vals gibi değildir. Ancak geçtiğimiz yüzyılda bu usûl kullanılarak yapılan bestelerde daha çok Vals ritmi hissedilmektedir.
+
+Kaynakça
+^ Nasıl Yapıldığını Bilmeniz Gereken 101 Şey. (101 Things You Should Know How To Do) Michael Powell. Butik Yayınları. 2008. Sayfa:43 ISBN 978-605-5890-19-3
+Taslak simgesi	Dans ile ilgili bu madde taslak seviyesindedir. Madde içeriğini genişleterek Vikipedi'ye katkı sağlayabilirsiniz.
+Kategori: Dans taslaklarıValsAlmancadan Türkçeye geçen sözcüklerAlman icatlarıAvusturya danslarıÇiftli danslar
+Sayfa en son 08.41, 16 Mayıs 2021 tarihinde değiştirildi.
+Metin Creative Commons Atıf-BenzerPaylaşım Lisansı altındadır; ek koşullar uygulanabilir. Bu siteyi kullanarak, Kullanım Şartlarını ve Gizlilik Politikasını kabul etmiş olursunuz.
+Vikipedi® (ve Wikipedia®) kâr amacı gütmeyen kuruluş olan Wikimedia Foundation, Inc. tescilli markasıdır.
+Gizlilik ilkesiVikipedi hakkındaSorumluluk reddiMobil görünümGeliştiricilerİstatistiklerTanımlama bilgisi bildirgesiWikimedia FoundationPowered by MediaWiki"""
+  metin=metin.lower()
+  say=metin.count("vals")
+  kelimeler=metin.split(" ")
+  kelimeler
+  len(kelimeler)
+  kelimesay=len(kelimeler)
+  yuzde=say/kelimesay
+  say/kelimesay*100
+  cumle="Ali ata bak"
+  cumle.replace("Ali","Veli")
+  import random 
+  random.choice(kelimeler)
+  ozneler=["Ali", "Ayşe","Fatma", "Musa"]
+  nesneler=["Okula","Eve", "Spor Salonuna", "Markete"]
+  eylemler=["geldi", "gitti", "koştu"]
+  print(ozneler,nesneler,eylemler)
+  print(ozneler.index[1])
+  print(ozneler(1))
+  print(ozneler)[1]
+  random.choice(ozneler)
+  random.choice(ozneler)
+  random.choice(ozneler,nesneler,eylemler)
+  print(random.choice(ozneler)+" "+random.choice(nesneler)+" "+random.choice(eylemler))
+  ozne=random.choice(ozneler)
+  nesne=(random.choice(nesneler))
+  eylem=random.choice(eylemler)
+  print(ozne,nesne,eylem)
