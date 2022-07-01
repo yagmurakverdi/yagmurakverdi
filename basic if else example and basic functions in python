@@ -1,0 +1,69 @@
+#Kullanıcıdan bir sayı isteyeniz, Sayı çift ise bu sayı ekrana bu sayı çifttir tek ise tektir yazdırın. 
+if: sayı%2=0
+    print(Çift sayı)
+    else:sayı%2==0
+    print("TEK SAYI")
+  if: sayı%2=0
+    print(Çift sayı)
+    else:sayı%2==0
+    print("TEK SAYI")
+    
+sayı=float(input("Bir sayı giriniz"))
+kalan=sayı%2
+if kalan==0:
+   print("Girdiğiniz", sayı, "sayısı çiftir")
+else:
+    print("Girdiğiniz", sayı, "sayısı tektir")
+    
+dogru=True
+if dogru:
+  print("Doğruymuş")
+if not dogru:
+  print("selam")
+ else:
+  print("selam")
+  
+isim="Çağrı"
+if "a" in isim:
+  print("Çağrının içerisinde a harfi var")
+if "z" not in isim:
+  print("Çağrının içerisinde z yok")
+  
+if 5!=6:
+  print("5 sayısı 6 sayısına eşit değildir")
+  
+x=201
+#x sayısının tek olup iki basamaklı olduğunu kontrol et.
+str(x)
+if x%2==1 or len(str(x))==2:
+  print("Aranan koşulları sağlar")
+
+#input ile bir isim girilebilecek bunun kaç heceden oluştuğunu sayacak 
+input(isim(count(isim)))
+input("Bir isim gir")
+isim="yağmur"
+a=isim.count("a")
+b=isim.count("y")
+c=isim.count("ğ")
+d=isim.count("m")
+e=isim.count("u")
+f=isim.count("r")
+isim=input("isim giriniz")
+isim=isim.lower()
+a=isim.count("a")
+u=isim.count("u")
+e=isim.count("e")
+ü=isim.count("ü")
+ı=isim.count("ı")
+i=isim.count("i")
+o=isim.count("o")
+ö=isim.count("ö")
+hece= a+e+o+ö+u+ü+ı+i
+print(hece, "heceden oluşmaktaktadır")
+import string
+string.ascii_letters
+string.ascii_lowercase
+tring.ascii_uppercase
+string.digits
+string.punctuation
+  
