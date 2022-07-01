@@ -1,0 +1,29 @@
+toplam=sayı1+sayı2
+print(toplam)
+fark=sayı1-sayı2
+print(sayı1,"ile",sayı2,"sayısının farkı",fark)
+carpım=sayı1*sayı2
+print(carpım)
+bölüm=sayı1//sayı2 #bölüm değerini verir
+
+sayı1%3  #kalan ifadeyi verir (sayı1 in 3 ile bölümünden kalan)
+bölüm=sayı1//sayı2 #bölüm değerini verir
+sayı1<sayı2
+sayı1==sayı2
+sayı1>sayı2
+
+if sayı1>sayı2:
+  print("Sayı1 Büyüktür")
+if sayı1<sayı2:
+  print("Sayı1 küçüktür")
+  
+ if sayı1<sayı2:
+  print("Sayı1 büyüktür")
+elif:sayı2>sayı1
+  print("Sayı2 büyüktür")  
+else:
+  print("sayı 1 büyük değildir")
+  
+ sayı=input("Bir tamsayı giriniz")
+ 
+ 
