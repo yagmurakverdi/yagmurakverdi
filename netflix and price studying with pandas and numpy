@@ -1,0 +1,49 @@
+import pandas as pd
+import numpy as np
+netflix=pd.read_csv('netflix.csv')
+netflix.head(3)
+netflix.info
+netflix['country'].unique()
+netflix=netflix.dropna()
+a=list(netflix['country'].unique())
+a
+a[0]
+ulkeler
+len(ulkeler)
+f2021=netflix['release_year']==2021
+def aktorbul(aktor):
+  x=netflix['cast'].str.contains(aktor)
+  df=netflix[x]
+  return df
+  aktorbul("Brad Pitt")
+  def dizigetir():
+  tekil=netflix['duration'].str.contains("Season")
+  cogul=netflix['duration'].str.contains('Seansons')
+  df=netflix[tekil| cogul]
+
+  return df
+  def dizigetir(yil=0,isim=""):
+  tekil=netflix['duration'].str.contains("Season")
+  cogul=netflix['duration'].str.contains('Seansons')
+  isim=netflix['title'].str.contains(isim)
+  df=netflix[tekil| cogul]
+  df=df[isim]
+  if yil==0:
+    df=df 
+  else:
+     yilsec=netflix['release_year']==yil
+     df=df[yilsec]
+  return df
+  dizigetir(2018,'Love')
+  #yıl aktör yönetmen ülke ve tip filtreleyen streamlit
+  df=pd.DataFrame()
+  fiyat=np.random.randint(9,15,size=(1,20))
+  fiyat
+  df['fiyat']=fiyat[0]
+  df
+  df['fiyat2']=df['fiyat'].shift(1)
+  df
+  df=df[1:]
+  df['degisim']=100*((df['fiyat']-df['fiyat2'])/df['fiyat'])
+  df
+      
