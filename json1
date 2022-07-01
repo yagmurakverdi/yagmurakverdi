@@ -1,0 +1,75 @@
+#### no sql veri tabanları : Mongo DB ve google firebase //api bir yazılımın başka b,r yaazılıma entegre çalışmasını sağlar. ^#yfinance, #pyplot
+ yayinevi="""{
+"yayinevi": "Çağrı Güngör Yayınevi",
+"kuruluş": 2007,
+"email":"info@cagri.com",
+"kitaplar":[
+  
+  {
+    "id":101,
+    "isim":"Yüzbaşının Kızı",
+    "yazar":"Aleksandr Puşkin",
+    "dil":"Rusça",
+    "ekitap":null,
+    "fiyat": 29.90 },
+
+  {"id":102,
+   "isim":" Kumarbaz",
+   "yazar":"Dosteyeveski",
+   "dil":"Rusça",
+   "ekitap":null,
+   "fiyat": 19.90 },
+
+  {"id":103,
+   "isim":"İnsan Neyle Yaşar",
+   "yazar":"Tolstoy",
+   "dil":"Rusça",
+   "ekitap":null,
+   "fiyat": 39.90 }
+
+]
+
+
+
+}"""
+import json
+kitapgetir=json.loads(yayinevi)
+kitapgetir
+kitapgetir['kitaplar']
+books=kitapgetir["kitaplar"]
+for book in books:
+  if book['isim']=='Yüzbaşının Kızı':
+    print(book['fiyat'])
+fiyat
+from urllib.request import urlopen
+with urlopen('https://dog.ceo/api/breeds/image/random') as response:
+kaynak=response.read()
+json.loads(kaynak)
+resim=json.loads(kaynak)
+resim['message']
+from requests import Request, Session
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
+import json
+
+url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+parameters = {
+  'start':'1',
+  'limit':'5000',
+  'convert':'USD'
+}
+headers = {
+  'Accepts': 'application/json',
+  'X-CMC_PRO_API_KEY': 'ac25f824-edfa-4c13-9ad3-1df99edb3b88',
+}
+
+session = Session()
+session.headers.update(headers)
+
+try:
+  response = session.get(url, params=parameters)
+  data = json.loads(response.text)
+  print(data)
+except (ConnectionError, Timeout, TooManyRedirects) as e:
+  print(e)
+
+print(data)
