@@ -1,0 +1,33 @@
+import pandas as pd 
+sporcular=pd.read_excel('Athletes.xlsx')
+sporcular.head()
+sporcular.head(2)
+sporcular.tail(2)
+pd.DataFrame(np.random.randint(5,size=(4,4))) #pd data frame metoduna bak!
+sporcular.info
+sporcular.columns
+ihe=pd.read_csv('ihe-konum-verileri.csv')
+ihe.head(3)
+ihe.to_excel('ekmek.xlsx')
+sporcular
+sporcular['Name']
+sporcular.loc[99] #tüm verileri getirebilir sözel sayısal ayrım yapmaz.
+sporcular[['Name','NOC']]
+sporcular.iloc[99] #sayısal verileri getirirken çalışır iloc.
+sporcular.iloc[0:10]
+sporcular.iloc[1:10]['Name']
+sporcular.columns=['isim','ülke','branş']
+sporcular
+pip install seaborn
+import seaborn as sns
+titanic=sns.load_dataset('titanic')
+titanic
+maybelline=pd.read_json('product.json')
+maybelline
+sporcular['ülke']=='Turkey'
+sporcular[sporcular['branş']=='Judo']
+tufek=sporcular['branş']=='Shooting'
+ukrayna=sporcular['ülke']=='Ukraine'
+hockey=sporcular['branş']=='Artistic Gymnastics'
+sporcular['branş'].unique() #unique verilerin tek tek gelmesini sağlar.
+sporcular[ukrayna&(tufek | hockey)]
