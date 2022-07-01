@@ -1,0 +1,91 @@
+!pip install Basemap
+from netCDF4 import Dataset as NetCDFFile 
+import matplotlib.pyplot as plt    #matplotlib kütüphane
+import numpy as np                 #numpy verileri array şeklinde yazımını sağlar. ( Matris sistemi)
+from mpl_toolkits.basemap import Basemap 
+nc1= NetCDFFile("SED1.nc")
+nc1 = NetCDFFile('SED_TR_MPI_F1_DJF.nc')
+nc2 = NetCDFFile('SED_TR_MPI_F1_JJA.nc')
+nc3 = NetCDFFile('SED_TR_MPI_F1_MAM.nc')
+nc4 = NetCDFFile('SED_TR_MPI_F1_SON.nc')
+nc5 = NetCDFFile('SED_TR_MPI_F2_DJF.nc')
+nc6 = NetCDFFile('SED_TR_MPI_F2_JJA.nc')
+nc7 = NetCDFFile('SED_TR_MPI_F2_MAM.nc')
+nc8 = NetCDFFile('SED_TR_MPI_F2_SON.nc')
+nc9 = NetCDFFile('SED_TR_MPI_F3_DJF.nc')
+nc10 = NetCDFFile('SED_TR_MPI_F3_JJA.nc')
+nc11 = NetCDFFile('SED_TR_MPI_F3_MAM.nc')
+nc12 = NetCDFFile('SED_TR_MPI_F3_SON.nc')
+nc13 = NetCDFFile('SEDymean_TR_MPI_F1.nc')
+nc14 = NetCDFFile('SEDymean_TR_MPI_F2.nc')
+nc15 = NetCDFFile('SEDymean_TR_MPI_F3.nc')
+tas1 = NetCDFFile('SED_TR_MPI_F1_MAM.nc')
+tas1 = NetCDFFile('ch_tas_F1_DJF_v2.nc')
+tas2 = NetCDFFile('ch_tas_F1_JJA_v2.nc')
+tas3 = NetCDFFile('ch_tas_F1_MAM_v2.nc')
+tas4 = NetCDFFile('ch_tas_F1_SON_v2.nc')
+tas5 = NetCDFFile('ch_tas_F2_DJF_v2.nc')
+tas6 = NetCDFFile('ch_tas_F2_JJA_v2.nc')
+tas7 = NetCDFFile('ch_tas_F2_MAM_v2.nc')
+tas8 = NetCDFFile('ch_tas_F2_SON_v2.nc')
+tas9 = NetCDFFile('ch_tas_F3_DJF_v2.nc')
+tas10 = NetCDFFile('ch_tas_F3_JJA_v2.nc')
+tas11 = NetCDFFile('ch_tas_F3_MAM_v2.nc')
+tas12 = NetCDFFile('ch_tas_F3_SON_v2.nc')
+tas13= NetCDFFile('land_tas_absdiff_TR_MPI_F3_SON.nc')
+sed1 = NetCDFFile('SED_TR_MPI_F1_DJF.nc')
+data_name = sed1
+name = "SED_TR_MPI_F1_DJF.nc"
+title = "2024-2049 Winter" # 2024-2049 2049-2074 2074-2099
+import xarray as xr
+
+ds = xr.open_dataset('SED_TR_MPI_F1_DJF.nc')
+df = ds.to_dataframe()
+df
+time = data_name.variables['time'][:]
+lat = data_name.variables['xlat'][:]
+lon = data_name.variables['xlon'][:]
+var_name = data_name.variables['tas'][:]
+map = Basemap(projection='merc',llcrnrlon=lon.min(),llcrnrlat=lat.min(),urcrnrlon=lon.max(),urcrnrlat=lat.max(),resolution='i') # projection, lat/lon extents and resolution of polygons to draw
+# resolutions: c - crude, l - low, i - intermediate, h - high, f - full
+from matplotlib.colors import ListedColormap, LinearSegmentedColormap
+from matplotlib import cm
+import matplotlib.colors as mcolors
+import matplotlib as mpl
+import matplotlib.ticker as tick
+
+# arkaplan harita
+
+map.drawcoastlines()
+map.drawstates()
+map.drawcountries()
+map.drawlsmask(land_color='Linen', ocean_color='#CCFFFF') # can use HTML names or codes for colors
+map.drawcounties() # you can even add counties (and other shapefiles!)
+parallels = np.arange(30,50,2.) # make latitude lines ever 2 degrees from 30N-50N
+meridians = np.arange(25,55,2.) # make longitude lines every 2 degrees from 25W to 55W
+
+# heatmap
+
+#levels = np.linspace(0, 6, 7) # SED: (0.5, 3, 11), tas: (0, 6, 7), pr: (-100, 100, 10)
+
+#levels = np.linspace(0.4, 1.5, 11)
+
+temp = map.contourf(lon,lat,var_name[0,0,:,:],256,cmap='jet',interpolation='nearest',latlon=True) #hot_r SED  Spectral_r # levels=levels
+# temp = map.contourf(lon,lat,var_name[0,:,:],256,cmap='terrain_r', interpolation='nearest',latlon=True) #hot_r SED  Spectral_r # levels=levels # preci için
+# temp = map.contourf(lon,lat,var_name[0,0,:,:],256,cmap='hot_r', interpolation='nearest',latlon=True) #hot_r SED  Spectral_r # levels=levels # sed ve tas için
+
+cb = map.colorbar(temp,"bottom", size="5%", pad="13%")  #format=tick.FormatStrFormatter('%.2f')
+
+#cb.set_clim(0, 6)
+
+map.drawparallels(parallels,labels=[1,0,0,0],fontsize=10)
+map.drawmeridians(meridians,labels=[0,0,0,1],fontsize=10)
+
+plt.title(title) #name of the data file
+cb.set_label('SED Values')
+
+plt.savefig(name + '.png')
+plt.show()
+from google.colab import files
+
+files.download(name + '.png')
