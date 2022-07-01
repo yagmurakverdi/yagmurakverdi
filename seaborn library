@@ -1,0 +1,17 @@
+import pandas as pd
+import seaborn as sns
+from sklearn.linear_model import LinearRegression
+import missingno as msno
+titanic=sns.load_dataset("titanic")
+titanic.head(3)
+y=titanic[['survived']]
+x=titanic[["pclass","sex","age","sibsp","parch","fare","embarked","deck","alone"]]
+x.head(3)
+x=pd.get_dummies(x,columns=["sex","embarked","deck","alone"],drop_first=True) #drop_first ile sex_male ve sex_female gibi iki grup olanlarından bir tanesi bıraktı.
+x.head(3)
+reg=LinearRegression()
+model=reg.fit(x,y)
+titanic["age"]=titanic["age"].fillna(titanic["age"].mean())
+titanic["deck"]=titanic["deck"].fillna("A")
+msno.bar(titanic)
+msno.matrix(titanic)
