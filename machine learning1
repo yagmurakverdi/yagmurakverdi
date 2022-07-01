@@ -1,0 +1,44 @@
+import numpy as np
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import RidgeCV
+import seaborn as sns
+elmas=sns.load_dataset("diamonds")
+elmas
+y=elmas[['price']]
+x=elmas[['carat','cut','color','clarity','depth','table']]
+x=pd.get_dummies(x,columns=['cut','color','clarity'],drop_first=True)
+
+alfalar=np.linspace(0,100,300)
+rcv=RidgeCV(alphas=alfalar,cv=10)
+rcv.fit(x,y)
+rcv.alpha_
+reg=Ridge(alpha=1)
+model=reg.fit(x,y)
+model.score(x,y)
+
+car=pd.read_csv("car.csv")
+#araç tip grubu,vites,km,model,yıl
+y=car[['Fiyat']]
+x=car[['Arac Tip Grubu','Model Yıl','Vites','Km',]]
+x=pd.get_dummies(x,columns=['Arac Tip Grubu','Vites',],drop_first=True)
+reg=Ridge(alpha=0.1)
+model=reg.fit(x,y)
+model.score(x,y)
+
+bahsis=sns.load_dataset("tips")
+bahsis.head(3)
+y=bahsis[["tip"]]
+x=bahsis.drop(columns=["tip"],axis=1)
+x=pd.get_dummies(x,columns=["sex","smoker","day","time"],drop_first=True)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.20,random_state=90)
+reg=Ridge(alpha=0.5)
+model=reg.fit(x_train,y_train)
+model.score(x_test,y_test)
+model.coef_ # en çok hangi parametrenin etkilediği 
+alfalar=np.linspace(0,20,500)
+ridgecv=RidgeCV(alphas=alfalar,scoring="neg_mean_squared_error",cv=10)
+ridgecv.fit(x_train,y_train)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.20,random_state=90)
